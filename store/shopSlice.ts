@@ -9,8 +9,11 @@ export interface ShopInfoState {
 }
 
 const initialState: ShopInfoState = {
-  shopInfo: [],
-  mapXY: {},
+  shopInfo: null,
+  mapXY: {
+    latitude: 37.497952,
+    longitude: 127.027619,
+  },
   shuffleShop: [],
   isLocation: false,
 };
