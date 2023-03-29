@@ -6,11 +6,11 @@ import Logo from '../assets/MainLogo.png';
 import Nav from '../components/Nav';
 import { useLocationUpdates } from '../hooks/useLocationUpdates';
 
-type Props = {
+type MapType = {
   map: Location;
 };
 
-const HomeScreen = ({ map }: Props) => {
+const HomeScreen = ({ map }: MapType) => {
   useLocationUpdates(map);
 
   return (
