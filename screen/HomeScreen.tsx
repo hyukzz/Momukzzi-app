@@ -1,17 +1,24 @@
 import React from 'react';
 import { StyleSheet, View, SafeAreaView, Image } from 'react-native';
 
-import { LOGO_URL } from '@env';
+// @ts-ignore
+import Logo from '../assets/MainLogo.png';
 import Nav from '../components/Nav';
-const HomeScreen = () => {
+import { useLocationUpdates } from '../hooks/useLocationUpdates';
+
+type Props = {
+  map: Location;
+};
+
+const HomeScreen = ({ map }: Props) => {
+  useLocationUpdates(map);
+
   return (
     <SafeAreaView style={styles.safeAreaView}>
       <View style={styles.view}>
         <Image
-          style={{ width: 140, height: 150, resizeMode: 'contain' }}
-          source={{
-            uri: LOGO_URL,
-          }}
+          style={{ width: 150, height: 150, resizeMode: 'contain' }}
+          source={Logo}
         />
 
         <Nav />

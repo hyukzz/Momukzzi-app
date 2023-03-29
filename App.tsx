@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-import { View } from 'react-native';
+import React from 'react';
 import { Provider } from 'react-redux';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -8,7 +7,7 @@ import { store } from './store/store';
 import HomeScreen from './screen/HomeScreen';
 import ShopInfo from './components/ShopInfo';
 
-export default function App() {
+export default function App(): JSX.Element {
   const Stack = createNativeStackNavigator();
 
   return (
