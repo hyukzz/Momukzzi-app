@@ -7,17 +7,24 @@ import {
   TouchableOpacity,
   Image,
 } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
-import { navData } from '../data/navData';
+import { navData, NavItem } from '../data/navData';
 
 const Nav = () => {
+  const navigation = useNavigation();
+
   return (
     <FlatList
       data={navData}
-      keyExtractor={(item) => item.id}
+      keyExtractor={(item: NavItem) => item.id}
       horizontal
-      renderItem={({ item }) => (
-        <TouchableOpacity style={styles.touchableOpacity} activeOpacity={0.7}>
+      renderItem={({ item }: { item: NavItem }) => (
+        <TouchableOpacity
+          style={styles.touchableOpacity}
+          activeOpacity={0.7}
+          onPress={() => navigation.navigate(item.view as never, {} as never)}
+        >
           <View>
             <Image
               style={{
@@ -46,6 +53,7 @@ const styles = StyleSheet.create({
     margin: 8,
     width: 160,
     alignItems: 'center',
+    borderRadius: 16,
   },
   text: {
     marginTop: 8,
